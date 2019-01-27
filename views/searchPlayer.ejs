@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include partials/header.ejs%>
+</head>
+<body>
+    
+        <% include partials/navbar.ejs%>
+    <h1>Find Players</h1><br />
+    <input type="text" id="searchPlayerInput" onKeyUp="fetchPlayers()" placeholder="Find Players">
+   <ul class="searchPlayerResult" id="searchPlayerResultId">
+       
+   </ul>
+    <% include partials/scripts.ejs %>
+</body>
+</html>

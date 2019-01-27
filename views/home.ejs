@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include partials/header.ejs%>
+</head>
+<body>
+    
+        <% include partials/navbar.ejs%>
+    <h1>Matches</h1><br />
+
+    <% for(i=0; i<matches.length; i++) { %>
+        <div>  <%= matches[i]["team-1"] %> vs <%= matches[i]["team-2"] %> </div><br />
+    <% } %>
+    <!-- <%= matches[0]["team-1"] %> -->
+    <% include partials/scripts.ejs %>
+</body>
+</html>

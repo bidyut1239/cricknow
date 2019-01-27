@@ -1,0 +1,32 @@
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>
+    function fetchPlayers() {
+        var query = $("#searchPlayerInput").val();
+        console.log(query);
+        $.ajax({
+            url: "/getQueryResult/?query=" + query,
+            method: "GET",
+            success: function(data) {
+                console.log(data);
+                searchPlayerResultHtml = "";
+                $("#searchPlayerResultId").html(searchPlayerResultHtml);
+                if(data.length) {
+                    for(let i=0; i<data.length; i++) {
+                        searchPlayerResultHtml += '<li><a href=/player/' + data[i].pid +'>' +
+                                                    data[i].fullName +
+                                                    '</a></li>';
+                    }
+                    $("#searchPlayerResultId").html(searchPlayerResultHtml);
+                }
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        });
+    }
+</script>
